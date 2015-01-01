@@ -33,6 +33,16 @@
     - vlc
     - ccmenu
     - tunnelblick
+    - dropbox
+    - cheatsheet
+    - daisydisk
+    - xscope
+    - ember
+    - kaleidoscope
+    - paw
+    - bartender
+    - moom
+    - mou
     
 - name: Install emacs
   shell: brew install emacs --cocoa --srgb 
