@@ -1,21 +1,29 @@
+---
 - name: Install required software
-  homebrew: name={{ item }} state=present
+  homebrew: name={{item}} state=present
   with_items:
     - cask
     - wget
     - git
     - tmux
-    - emacs install_options=cocoa,srgb
+
+- name: Tap caskroom/cask
+  homebrew_tap: tap=caskroom/cask
+
+- name: Install Homebrew cask
+  homebrew: name=brew-cask
 
 - name: Install GUI apps
-  homebrew_cask: name={{ item }} state=present
+  homebrew_cask: name={{item}} state=present
   with_items:
     - google-chrome
     - virtualbox
+
+- name: Install emacs
+  homebrew: name=emacs state=present install_options=cocoa,srgb
 
 - name: Install emacs config
   git: repo=https://github.com/sufyanadam/.emacs-use-package.git dest=~/.emacs.d
 
 - name: Run cask in .emacs.d directory
   shell: cd ~/.emacs.d && cask
-
