@@ -6,6 +6,7 @@
     - wget
     - git
     - tmux
+    - imagemagick
 
 - name: Tap caskroom/cask
   homebrew_tap: tap=caskroom/cask
@@ -20,7 +21,7 @@
     - virtualbox
 
 - name: Install emacs
-  homebrew: name=emacs state=present install_options=cocoa,srgb
+  shell: brew install emacs --cocoa --srgb 
 
 - name: Install emacs config
   git: repo=https://github.com/sufyanadam/.emacs-use-package.git dest=~/.emacs.d
