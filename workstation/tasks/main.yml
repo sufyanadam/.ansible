@@ -7,6 +7,13 @@
     - git
     - tmux
     - imagemagick
+    - ag
+    - ctags
+    - w3m
+    - csshx
+    - nginx
+    - postgresql
+    - tmate
 
 - name: Tap caskroom/cask
   homebrew_tap: tap=caskroom/cask
