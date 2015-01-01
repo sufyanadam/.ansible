@@ -19,7 +19,14 @@
   with_items:
     - google-chrome
     - virtualbox
-
+    - caffeine
+    - dash
+    - skype
+    - shiftit
+    - vlc
+    - ccmenu
+    - tunnelblick
+    
 - name: Install emacs
   shell: brew install emacs --cocoa --srgb 
 
