@@ -1,0 +1,10 @@
+---
+
+- name: Clone the bash-it repo
+  git: https://github.com/revans/bash-it.git dest=~/.bash_it
+
+- name: Install bash it
+  shell: source ~/.bash_it/install.sh
+
+- name: Load the bobby theme
+  shell: export BASH_IT_THEME='bobby' >> ~/.bash_profile && reload

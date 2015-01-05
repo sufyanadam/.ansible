@@ -81,6 +81,9 @@
     - bartender
     - moom
     - mou
+
+- name: Install bash-it
+  - include: tasks/bash_it.yml
     
 - name: Install emacs
   shell: brew install emacs --cocoa
