@@ -1,7 +1,7 @@
 ---
 
 - name: Clone the bash-it repo
-  git: https://github.com/revans/bash-it.git dest=~/.bash_it
+  git: repo=https://github.com/revans/bash-it.git dest=~/.bash_it
 
 - name: Install bash it
   shell: source ~/.bash_it/install.sh
