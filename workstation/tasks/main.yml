@@ -9,7 +9,10 @@
     - caskroom/fonts
     - caskroom/cask
     - nviennot/tmate
-    
+
+- name: Install Homebrew cask
+  homebrew: name=brew-cask state=present
+   
 - name: Update homebrew recipes
   shell: brew update
   
@@ -55,9 +58,6 @@
     - nginx
     - postgresql
     - tmate
-
-- name: Install Homebrew cask
-  homebrew: name=brew-cask state=present
 
 - name: Install GUI apps
   homebrew_cask: name={{item}} state=present
