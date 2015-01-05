@@ -25,4 +25,4 @@ if [[ ! -f ANSIBLE_DIR ]]; then
     cd $ANSIBLE_DIR
 fi
 
-ansible-playbook --ask-sudo-pass ~/.ansible/site.yml -i $ANSIBLE_DIR/inventory
+ansible-playbook --ask-sudo-pass ~/.ansible/site.yml -i $ANSIBLE_DIR/workstation/inventory
