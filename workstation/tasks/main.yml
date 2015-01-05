@@ -83,7 +83,7 @@
     - mou
     
 - name: Install emacs
-  shell: brew install emacs --cocoa --srgb 
+  shell: brew install emacs --cocoa
 
 - name: Install emacs config
   git: repo=https://github.com/sufyanadam/.emacs-use-package.git dest=~/.emacs.d
