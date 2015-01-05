@@ -8,7 +8,8 @@
     - homebrew/dupes
     - caskroom/fonts
     - caskroom/cask
-
+    - nviennot/tmate
+    
 - name: Update homebrew recipes
   shell: brew update
   
