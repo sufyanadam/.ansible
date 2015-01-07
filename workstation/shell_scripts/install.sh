@@ -23,14 +23,8 @@ ANSIBLE_DIR="$HOME/.ansible"
 if [[ ! -d $ANSIBLE_DIR ]]; then
     git clone https://github.com/sufyanadam/.ansible
     cd $ANSIBLE_DIR
-fi
-
-# If Ansible repo exists, get latest version
-
-if [[ -d $ANSIBLE_DIR ]]; then
-    git clone https://github.com/sufyanadam/.ansible
-    cd $ANSIBLE_DIR
 else
+    # If Ansible repo exists, get latest version
     cd $ANSIBLE_DIR && git pull
 fi
 
