@@ -3,8 +3,9 @@
 Automatically setup your new mac (or fresh install of OS X) just the way you like it.
 
 # How to install
-
-`bash <(curl -s https://raw.githubusercontent.com/sufyanadam/.ansible/master/eorkstation/shell_scripts/install.sh)`
+```bash 
+bash <(curl -s https://raw.githubusercontent.com/sufyanadam/.ansible/master/eorkstation/shell_scripts/install.sh)
+```
 
 # What does it do?
 
