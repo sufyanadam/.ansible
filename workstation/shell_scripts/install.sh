@@ -20,7 +20,7 @@ fi
 # Clone down the Ansible repo
 ANSIBLE_DIR="$HOME/.ansible"
 
-if [[ ! -f ANSIBLE_DIR ]]; then
+if [[ ! -d $ANSIBLE_DIR ]]; then
     git clone https://github.com/sufyanadam/.ansible
     cd $ANSIBLE_DIR
 fi
