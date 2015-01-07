@@ -1,10 +1,23 @@
 ---
-
 - name: Clone the bash-it repo
   git: repo=https://github.com/revans/bash-it.git dest=~/.bash_it
 
-- name: Install bash it
-  shell: source ~/.bash_it/install.sh
+- name: Set bash-it theme
+  shell: export BASH_IT_THEME='bobby' >> ~/.bashrc
 
-- name: Load the bobby theme
-  shell: export BASH_IT_THEME='bobby' >> ~/.bash_profile && reload
+- name: Load bash-it
+  shell: source ~/.bash_it/bash_it.sh
+
+- name: Retrieve list of custom scripts
+  shell: ls ~/.ansible/workstation/shell_scripts/bash_it/custom
+  register: custom_bash_it_scripts
+
+- name: Link custom bash-it scripts
+  file: src=~/.ansible/workstation/shell_scripts/bash_it/custom/{{item}} dest=~/.bash_it/custom/{{item}} state=link
+  with_items:
+    custom_bash_it_scripts
+
+- name: Load customizations
+  shell: source ~/.bash_it/custom/{{item}}
+  with_items:
+    custom_bash_it_scripts
