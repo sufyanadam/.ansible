@@ -25,8 +25,8 @@
 - name: Install GNU `find`, `locate`, `updatedb`, and `xargs`, `g`-prefixed.
   homebrew: name=findutils state=present
 
-- name: Install GNU `sed`, overwriting the built-in `sed`.
-  shell: brew install gnu-sed --with-default-names
+#- name: Install GNU `sed`, overwriting the built-in `sed`.
+#  shell: brew install gnu-sed --with-default-names
 
 - name: Install Bash 4.
 # Note: don’t forget to add `/usr/local/bin/bash` to `/etc/shells` before
@@ -82,7 +82,7 @@
     - moom
     - mou
 
-#- include: install_bash_it.yml
+- include: install_bash_it.yml
 
 - name: Install emacs
   shell: brew install emacs --cocoa
