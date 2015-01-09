@@ -2,6 +2,9 @@
 - name: Clone the bash-it repo
   git: repo=https://github.com/revans/bash-it.git dest=~/.bash_it
 
+- name: Set path to bash it dir
+  shell: 'export BASH_IT=~/.bash_it'
+
 - name: Set bash-it theme
   shell: export BASH_IT_THEME='bobby' >> ~/.bashrc
 
