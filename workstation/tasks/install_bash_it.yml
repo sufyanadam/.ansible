@@ -18,6 +18,3 @@
   shell: source ~/.bash_it/custom/{{item}}
   with_items:
     custom_bash_it_scripts
-
-- name: Load .bash_profile
-  shell: source ~/.bash_profile
