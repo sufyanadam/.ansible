@@ -2,7 +2,7 @@
 vars:
   env:
     BASH_IT: ~/.bash_it
-    BASH_IT_THEME: 'bobby'
+    BASH_IT_THEME: bobby
 
 - name: Clone the bash-it repo
   git: repo=https://github.com/revans/bash-it.git dest=~/.bash_it
