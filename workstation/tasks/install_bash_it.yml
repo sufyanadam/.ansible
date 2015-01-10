@@ -1,15 +1,17 @@
 ---
-vars:
-  env:
-    BASH_IT: ~/.bash_it
-    BASH_IT_THEME: bobby
-
 - name: Clone the bash-it repo
   git: repo=https://github.com/revans/bash-it.git dest=~/.bash_it
 
+- name: Update .bash_profile
+  shell: echo {{item}} >> ~/.bash_profile
+  with_items:
+    'export PATH="/usr/local/bin:$PATH"'
+    'export BASH_IT="~/.bash_it"'
+    'export BASH_IT_THEME="bobby"'
+    'source $BASH_IT/bash_it.sh'
+
 - name: Load bash-it
-  shell: source $BASH_IT/bash_it.sh >> ~/.bash_profile
-  environment: env
+  shell: source $BASH_IT/bash_it.sh
 
 - name: Retrieve list of custom scripts
   shell: ls ~/.ansible/workstation/shell_scripts/bash_it/custom
