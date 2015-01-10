@@ -10,11 +10,4 @@
   register: custom_bash_it_scripts
 
 - name: Link custom bash-it scripts
-  file: src=~/.ansible/workstation/shell_scripts/bash_it/custom/{{item}} dest=~/.bash_it/custom/{{item}} state=link
-  with_items:
-    custom_bash_it_scripts
-
-- name: Load customizations
-  shell: source ~/.bash_it/custom/{{item}}
-  with_items:
-    custom_bash_it_scripts
+  file: src=~/.ansible/workstation/shell_scripts/bash_it/custom/add_user_initials_to_git_prompt_info.bash dest=~/.bash_it/custom/add_user_initials_to_git_prompt_info.bash state=link
