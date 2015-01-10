@@ -10,6 +10,9 @@
     export BASH_IT_THEME="bobby"
     source $BASH_IT/bash_it.sh
 
+- name: load environment variables via .bash_profile
+  shell: source ~/.bash_profile
+
 - name: Load bash-it
   shell: source $BASH_IT/bash_it.sh
 
