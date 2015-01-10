@@ -83,7 +83,7 @@
     - moom
     - mou
 
-- include: install_bash_it.yml
+#- include: install_bash_it.yml
 
 - name: Install emacs
   shell: "brew install emacs --cocoa"
