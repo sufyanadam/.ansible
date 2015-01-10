@@ -8,7 +8,7 @@
     export PATH="/usr/local/bin:$PATH"
     export BASH_IT="~/.bash_it"
     export BASH_IT_THEME="bobby"
-    source $BASH_IT/bash_it.sh
+    source ~/.bash_it/bash_it.sh
 
 - name: load environment variables via .bash_profile
   shell: source ~/.bash_profile
