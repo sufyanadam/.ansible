@@ -3,10 +3,10 @@
   git: repo=https://github.com/revans/bash-it.git dest=~/.bash_it
 
 - name: Update .bash_profile
-  shell: cat ~/.ansible/workstation/shell_scripts/install_bash_it.sh >> ~/.bash_profile
+  shell: cat $HOME/.ansible/workstation/shell_scripts/install_bash_it.sh >> ~/.bash_profile
 
 - name: Retrieve list of custom scripts
-  shell: ls ~/.ansible/workstation/shell_scripts/bash_it/custom
+  shell: ls $HOME/.ansible/workstation/shell_scripts/bash_it/custom
   register: custom_bash_it_scripts
 
 - name: Link custom bash-it scripts
