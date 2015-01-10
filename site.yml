@@ -1,5 +1,6 @@
 - hosts: all
   roles:
     - role: workstation
+  sudo: yes
   vars:
     - home: /Users/{{ ansible_user_id }}
