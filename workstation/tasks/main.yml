@@ -87,7 +87,7 @@
 
 - template: src=~/.ansible/workstation/templates/.bashrc dest=~/.bashrc
 
-- template: src=~/.ansible/workstation/templates/.bash_profile
+- template: src=~/.ansible/workstation/templates/.bash_profile dest=~/.bash_profile
 
 - name: Install emacs
   shell: "brew install emacs --cocoa"
