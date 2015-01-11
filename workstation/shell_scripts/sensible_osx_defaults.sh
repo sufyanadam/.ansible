@@ -1,3 +1,13 @@
+###############################################################################
+# Terminal                                                                    #
+###############################################################################
+
+# Set default window settings to 'Pro'
+defaults write com.apple.Terminal 'Default Window Settings' -string 'Pro'
+
+# Set startup window settings to 'Pro'
+defaults write com.apple.Terminal 'Startup Window Settings' -string 'Pro'
+
 # Trackpad: enable tap to click for this user and for the login screen
 defaults write com.apple.driver.AppleBluetoothMultitouch.trackpad Clicking -bool true
 defaults -currentHost write NSGlobalDomain com.apple.mouse.tapBehavior -int 1
