@@ -2,12 +2,5 @@
 - name: Clone the bash-it repo
   git: repo=https://github.com/revans/bash-it.git dest=~/.bash_it
 
-- name: Update .bash_profile
-  shell: cat $HOME/.ansible/workstation/shell_scripts/install_bash_it.sh >> ~/.bash_profile
-
-- name: Retrieve list of custom scripts
-  shell: ls $HOME/.ansible/workstation/shell_scripts/bash_it/custom
-  register: custom_bash_it_scripts
-
 - name: Link custom bash-it scripts
   file: src=~/.ansible/workstation/shell_scripts/bash_it/custom/add_user_initials_to_git_prompt_info.bash dest=~/.bash_it/custom/add_user_initials_to_git_prompt_info.bash state=link

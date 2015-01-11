@@ -83,7 +83,7 @@
     - moom
     - mou
 
-#- include: install_bash_it.yml
+- include: install_bash_it.yml
 
 - template: src=~/.ansible/workstation/templates/.bashrc dest=~/.bashrc
 
