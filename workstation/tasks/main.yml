@@ -39,10 +39,6 @@
 # name: Install more recent versions of some OS X tools
 # homebrew: name=grep
 
-# name: Update path in order to use gnu tools in place of the included mac ones
-# shell: export PATH="$(brew --prefix coreutils)/libexec/gnubin:/usr/local/bin:$PATH" 
-#
-
 - name: Install packages from homebrew
   homebrew: name={{item}} state=present
   with_items:
