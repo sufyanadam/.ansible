@@ -8,6 +8,9 @@ defaults write com.apple.Terminal 'Default Window Settings' -string 'Pro'
 # Set startup window settings to 'Pro'
 defaults write com.apple.Terminal 'Startup Window Settings' -string 'Pro'
 
+# Only use UTF-8 in Terminal.app
+defaults write com.apple.terminal StringEncodings -array 4
+
 # Trackpad: enable tap to click for this user and for the login screen
 defaults write com.apple.driver.AppleBluetoothMultitouch.trackpad Clicking -bool true
 defaults -currentHost write NSGlobalDomain com.apple.mouse.tapBehavior -int 1
