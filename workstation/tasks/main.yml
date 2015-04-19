@@ -86,7 +86,7 @@
 - template: src=~/.ansible/workstation/templates/.bash_profile dest=~/.bash_profile
 
 - name: Install emacs
-  command: "brew install emacs --cocoa"
+  homebrew: name=emacs state=present install_options=with-cocoa,with-imagemagick
 
 - name: Install emacs config
   git: repo=https://github.com/sufyanadam/.emacs-use-package.git dest=~/.emacs.d
