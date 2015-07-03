@@ -1,7 +1,7 @@
 export PATH="/usr/local/bin:$PATH"
 
 # Path to the bash it configuration
-export BASH_IT="/Users/sufyan/.bash_it"
+export BASH_IT="/Users/$USER/.bash_it"
 
 # Lock and Load a custom theme file
 export BASH_IT_THEME="bobby"
