@@ -1,2 +1,4 @@
 ---
 - include: dev_box_essentials.yml
+
+- include: {{ lookup('env', 'CUSTOM_ANSIBLE_TASK') }}
