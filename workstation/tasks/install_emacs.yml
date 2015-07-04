@@ -1,0 +1,9 @@
+---
+- name: Install emacs
+  homebrew: name=emacs state=latest install_options=with-cocoa,with-imagemagick
+
+- name: Install emacs config
+  git: repo=https://github.com/sufyanadam/.emacs-use-package.git dest=~/.emacs.d
+
+- name: Run cask in .emacs.d directory
+  shell: cd ~/.emacs.d && cask

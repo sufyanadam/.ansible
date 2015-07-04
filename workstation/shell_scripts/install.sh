@@ -28,4 +28,4 @@ else
     cd $ANSIBLE_DIR && git pull
 fi
 
-ansible-playbook --ask-sudo-pass ~/.ansible/site.yml -i $ANSIBLE_DIR/workstation/inventory
+ansible-playbook --become-method=sudo ~/.ansible/site.yml -i $ANSIBLE_DIR/workstation/inventory

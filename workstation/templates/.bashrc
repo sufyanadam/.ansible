@@ -9,5 +9,5 @@ export BASH_IT_THEME="bobby"
 # Load Bash It
 source $BASH_IT/bash_it.sh
 
-# Enable colours in emacs M-x shell
+# Enable colours in terminal
 export TERM=xterm-256color

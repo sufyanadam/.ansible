@@ -1,0 +1,7 @@
+---
+- name: Install GUI apps
+  homebrew_cask: name={{item}} state=present
+  with_items:
+    - dropbox
+    - vlc
+    - skype
