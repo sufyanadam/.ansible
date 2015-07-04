@@ -51,7 +51,7 @@
 - include: install_emacs.yml
 
 # User specific settings
-#- include: "{ ansible_user_id }.yml"
+- include: "{ $ansible_user_id }.yml"
 
 - template: src=~/.ansible/workstation/templates/.bashrc dest=~/.bashrc
 
