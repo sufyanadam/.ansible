@@ -1,4 +1,14 @@
 ---
 - include: dev_box_essentials.yml
 
-- include: {{ lookup('env', 'CUSTOM_ANSIBLE_TASK') }}
+- name: Update user custom ansible config from git
+  git: repo="{{ lookup('env', 'CUSTOM_ANSIBLE_CONFIG_REPO') }}" dest="{{ home }}/.custom_ansible_config"
+
+- name: Run user custom config
+  include: ~/.custom_ansible_config/main.yml
+
+- name: Upgrade any already-installed formulae
+  shell: brew upgrade
+
+- name: Remove outdated versions from the cellar
+  shell: brew cleanup
