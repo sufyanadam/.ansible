@@ -34,6 +34,7 @@
     - tmate
 
 - name: Install GUI apps
+  become: sudo
   homebrew_cask: name={{ item }} state=present
   with_items:
     - google-chrome
