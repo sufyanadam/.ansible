@@ -5,6 +5,7 @@
   git: repo="{{ lookup('env', 'CUSTOM_ANSIBLE_CONFIG_REPO') }}" dest="{{ home }}/.custom_ansible_config"
 
 - name: Run user custom config
+  become: true
   include: ~/.custom_ansible_config/main.yml
 
 - name: Upgrade any already-installed formulae
