@@ -42,7 +42,7 @@
     - caffeine
     - dash
     - shiftit
-    - ccmenu
+    #- ccmenu   #ccmenu has been removed from cask
     - tunnelblick
     - mou
     - xscope
