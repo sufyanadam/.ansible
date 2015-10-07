@@ -1,0 +1,55 @@
+---
+- name: Install GUI apps we use at habit
+  homebrew_cask: name={{item}} state=present
+  with_items:
+    - slack
+    - scroll-reverser
+    - docker
+  ignore_errors: true
+
+- name: Install ruby 2.3.0
+  command: rbenv install 2.3.0
+  ignore_errors: yes
+
+- name: Install habit packages from homebrew
+  homebrew: name={{ item }} state=latest
+  with_items:
+    - postgresql
+    - redis
+    - phantomjs
+    - node
+
+- name: Add homebrew taps for habit
+  homebrew_tap: tap={{ item }}
+  with_items:
+    - homebrew/bundle
+
+- name: Create code directory
+  file: path=~/code state=directory
+
+- name: Clone the papaya repo
+  git: repo=git@github.com:team-eden/papaya.git dest=~/code/papaya
+
+- command: brew bundle
+  args:
+    chdir: ~/code/papaya
+
+- command: R -e "install.packages(c('pracma', 'pastecs'), repos = 'http://cran.rstudio.com/')"
+  args:
+    chdir: ~/code/papaya
+
+- name: Install pivotal git scripts
+  shell: gem install pivotal_git_scripts
+  args:
+    chdir: ~/code/papaya
+
+- template: src=~/.ansible/workstation/templates/.pairs dest=~/.pairs
+
+- name: create postgres user
+  shell: createuser -s postgres
+  ignore_errors: yes
+
+- name: run npm install
+  shell: npm install
+  args:
+    chdir: ~/code/papaya

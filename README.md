@@ -1,39 +1,73 @@
 # README
 
-Automatically setup your new mac (or fresh install of OS X) just the way you like it.
+Automatically setup your new mac (or fresh install of OS X) for ruby development
+of the papaya repo.
 
-# What does it do?
-  - Configures sensible defaults for OSX fit for software development (Key repeat rate, etc..)
-  - Installs all basic tools needed for general software development:
+# Highlights
+  - Automatically install the required software for developing papaya:
+    - Postgresql (latest homebrew version)
+    - Redis      (latest homebrew version)
+    - phantomjs  (latest homebrew version)
+    - node
+  - Automatically clone the papaya repo
+  - Install the `R` dependencies
+  - Create the `postgres` user
+  - Install javascript dependencies with `npm install`
+  - Additionally, Install the following useful tools:
     - cask
     - wget
     - git
     - hub
     - tmux
-    - imagemagick
     - ag
-    - ctags
     - w3m
     - csshx
-    - nginx
-    - postgresql
-    - tmate
+    - rbenv
+    - caffeine
+    - shiftit
+    - mou
+    - flycut
+    - ccmenu
+    - slack
+    - ruby (latest version, also install 2.3.0)
+    - pivotal git scripts (for nice pairing commit messages)
+
+  - Setup a reasonable key repeat rate
+  - Setup rbenv, use it to install latest ruby (2.3.1)
+  - Setup sane aliases
+  - Setup nice command prompt with useful info
+  - Enable autocompletion for git and bash
+
+# Aliases
+```
+  sl => ls
+  ls => 'ls -G'        # Compact view, show colors
+  la => 'ls -AF'       # Compact view, show hidden
+  ll => 'ls -alh'
+  l  => 'ls -a'
+  l1 => 'ls -1'
+  edit => "$EDITOR"
+  pager => "$PAGER"
+  irc => "$IRC_CLIENT"
+  Tree => show a tree view of the directory
+```
+
+## Git aliases
+
+```
+st => status
+co => checkout
+```
 
 # How to install
-### To install just the basic system
-
-```bash 
-bash <(curl -s https://raw.githubusercontent.com/sufyanadam/.ansible/master/workstation/shell_scripts/install.sh)
-```
-### To install the base, plus customizations specific to your own preferred configuration
-  1. Create a repo in github to house your own ansible tasks. In your repo create a `main.yml` file
-containing all the ansible tasks you wish to run. You can also include other task yaml files in your
-`main.yml` file. For example, [see this repo](https://github.com/sufyanadam/.custom_ansible_config)
-
-  2. Download your repo locally to your machine into `.custom_ansible_config` directory
-
-  3. Set the URL to your repo as an environment variable and run the installation script above. Like so:
 
 ```bash
-CUSTOM_ANSIBLE_CONFIG_REPO=<your_custom_repo_url> bash <(curl -s https://raw.githubusercontent.com/sufyanadam/.ansible/master/workstation/shell_scripts/install.sh)
+bash <(curl -s https://raw.githubusercontent.com/team-eden/habit-seed/master/workstation/shell_scripts/install.sh?token=ABDifntVl_N5fU0ofs80a6BuCr0xBBhVks5XoQKEwA%3D%3D)
 ```
+
+# TODO
+ - Automate generation of ssh keys if they don't exist
+ - Automate installation of .env.local files
+ - Prompt for gem fury api token
+ - brew services start postgres and redis
+ - Install Atom with custom configs

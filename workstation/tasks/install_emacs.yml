@@ -1,9 +1,13 @@
 ---
 - name: Install emacs
-  homebrew: name=emacs state=latest install_options=with-cocoa,with-imagemagick
+  homebrew: name=emacs state=latest install_options=with-cocoa
 
 - name: Install emacs config
-  git: repo=https://github.com/sufyanadam/.emacs-use-package.git dest=~/.emacs.d
+  git: repo=https://github.com/sufyanadam/.emacs.d.git dest=~/.emacs.d
 
 - name: Run cask in .emacs.d directory
   shell: cd ~/.emacs.d && cask
+  ignore_errors: true
+
+- name: Create ec as emacsclient
+  template: src=~/.ansible/workstation/templates/ec dest=/usr/local/bin

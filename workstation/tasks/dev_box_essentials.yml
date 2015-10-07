@@ -5,13 +5,10 @@
 - name: Add homebrew taps
   homebrew_tap: tap={{ item }}
   with_items:
-    - homebrew/dupes
-    - caskroom/fonts
     - caskroom/cask
-    - nviennot/tmate
 
 - name: Install Homebrew cask
-  homebrew: name=brew-cask state=present
+  homebrew: name=cask state=latest
 
 - name: Update homebrew recipes
   shell: brew update
@@ -24,33 +21,44 @@
     - git
     - hub
     - tmux
-    - imagemagick
     - ag
-    - ctags
     - w3m
     - csshx
-    - nginx
-    - postgresql
-    - tmate
+    - rbenv
+    - rbenv-gemset
+
+- name: Install ruby-build
+  git: repo=https://github.com/rbenv/ruby-build.git dest=~/.rbenv/plugins/ruby-build
+
+- name: Install ruby
+  command: rbenv install 2.3.1
+  ignore_errors: yes
+
+- name: Set ruby 2.3.1 as global ruby
+  command: rbenv global 2.3.1
 
 - name: Install GUI apps
-  become: true
   homebrew_cask: name={{ item }} state=present
   with_items:
-    - google-chrome
-    - virtualbox
     - caffeine
-    - dash
     - shiftit
-    #- ccmenu   #ccmenu has been removed from cask
-    - tunnelblick
     - mou
-    - xscope
-
-- include: install_bash_it.yml
+    - flycut
+    - ccmenu
+    - google-chrome
+    - xquartz
+  ignore_errors: true
 
 - include: install_emacs.yml
+
+- include: install_bash_it.yml
 
 - template: src=~/.ansible/workstation/templates/.bashrc dest=~/.bashrc
 
 - template: src=~/.ansible/workstation/templates/.bash_profile dest=~/.bash_profile
+
+- name: Setup git
+  shell: "git config --global alias.{{ item.key }} {{ item.value }}"
+  with_dict:
+    st: status
+    co: checkout

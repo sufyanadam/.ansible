@@ -1,12 +1,12 @@
 ---
 - include: dev_box_essentials.yml
 
-- name: Update user custom ansible config from git
-  git: repo="{{ lookup('env', 'CUSTOM_ANSIBLE_CONFIG_REPO') }}" dest="{{ home }}/.custom_ansible_config"
+- include: habit.yml
 
-- name: Run user custom config
-  become: true
-  include: ~/.custom_ansible_config/main.yml
+- name: Include custom personal tasks
+  include: "{{ item }}"
+  with_fileglob:
+    - ~/.ansible/personal_tasks/*.yml
 
 - name: Upgrade any already-installed formulae
   shell: brew upgrade
