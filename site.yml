@@ -3,3 +3,7 @@
     - role: workstation
   vars:
     - home: /Users/{{ ansible_user_id }}
+  vars_prompt:
+    - name: "ruby_version"
+      prompt: "Version of ruby to install (default: 2.4.0)"
+      default: "2.4.0"

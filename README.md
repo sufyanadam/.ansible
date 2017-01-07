@@ -9,11 +9,6 @@ of the papaya repo.
     - Redis      (latest homebrew version)
     - phantomjs  (latest homebrew version)
     - node
-  - Automatically clone the papaya repo
-  - Install the `R` dependencies
-  - Create the `postgres` user
-  - Install javascript dependencies with `npm install`
-  - Additionally, Install the following useful tools:
     - cask
     - wget
     - git
@@ -29,11 +24,9 @@ of the papaya repo.
     - flycut
     - ccmenu
     - slack
-    - ruby (latest version, also install 2.3.0)
+    - ruby (prompts you for version)
     - pivotal git scripts (for nice pairing commit messages)
-
   - Setup a reasonable key repeat rate
-  - Setup rbenv, use it to install latest ruby (2.3.1)
   - Setup sane aliases
   - Setup nice command prompt with useful info
   - Enable autocompletion for git and bash
@@ -62,12 +55,5 @@ co => checkout
 # How to install
 
 ```bash
-bash <(curl -s https://raw.githubusercontent.com/team-eden/habit-seed/master/workstation/shell_scripts/install.sh?token=ABDifntVl_N5fU0ofs80a6BuCr0xBBhVks5XoQKEwA%3D%3D)
+bash <(curl -s https://raw.githubusercontent.com/sufyanadam/.ansible/master/workstation/shell_scripts/install.sh)
 ```
-
-# TODO
- - Automate generation of ssh keys if they don't exist
- - Automate installation of .env.local files
- - Prompt for gem fury api token
- - brew services start postgres and redis
- - Install Atom with custom configs

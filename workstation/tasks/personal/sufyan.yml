@@ -1,0 +1,43 @@
+---
+- name: Install GUI apps
+  homebrew_cask: name={{item}} state=present
+  with_items:
+    - slack
+    - scroll-reverser
+    - docker
+    - vlc
+    - dropbox
+    - skype
+  ignore_errors: true
+
+- name: List installed rubies
+  shell: rbenv versions
+  register: rbenv_versions
+  ignore_errors: yes
+
+- name: Install ruby {{ ruby_version }}
+  shell: rbenv install {{ ruby_version }}
+  when: rbenv_versions.stdout.find('{{ ruby_version }}') == -1
+
+- name: Set global ruby
+  shell: rbenv global {{ ruby_version }}
+
+- name: Install bundler
+  shell: gem install bundler
+
+- name: Install packages from homebrew
+  homebrew: name={{ item }} state=latest
+  with_items:
+    - postgresql
+    - redis
+    - phantomjs
+    - node
+
+- name: Install pivotal git scripts
+  shell: gem install pivotal_git_scripts
+
+- template: src=~/.ansible/workstation/templates/.pairs dest=~/.pairs
+
+- name: create postgres user
+  shell: createuser -s postgres
+  ignore_errors: yes

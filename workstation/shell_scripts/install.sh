@@ -21,11 +21,11 @@ fi
 ANSIBLE_DIR="$HOME/.ansible"
 
 if [[ ! -d $ANSIBLE_DIR ]]; then
-    git clone git@github.com:team-eden/habit-seed.git .ansible
+    git clone https://github.com/sufyanadam/.ansible
     cd $ANSIBLE_DIR
 else
     # If Ansible repo exists, get latest version
     cd $ANSIBLE_DIR && git pull
 fi
 
-ansible-playbook ~/.ansible/site.yml -i $ANSIBLE_DIR/workstation/inventory
+ansible-playbook --become-method=sudo ~/.ansible/site.yml -i $ANSIBLE_DIR/workstation/inventory

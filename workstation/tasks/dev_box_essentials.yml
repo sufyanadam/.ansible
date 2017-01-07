@@ -30,13 +30,6 @@
 - name: Install ruby-build
   git: repo=https://github.com/rbenv/ruby-build.git dest=~/.rbenv/plugins/ruby-build
 
-- name: Install ruby
-  command: rbenv install 2.3.1
-  ignore_errors: yes
-
-- name: Set ruby 2.3.1 as global ruby
-  command: rbenv global 2.3.1
-
 - name: Install GUI apps
   homebrew_cask: name={{ item }} state=present
   with_items:

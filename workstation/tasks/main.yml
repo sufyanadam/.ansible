@@ -1,7 +1,7 @@
 ---
 - include: dev_box_essentials.yml
 
-- include: habit.yml
+- include: personal/sufyan.yml
 
 - name: Include custom personal tasks
   include: "{{ item }}"
