@@ -3,11 +3,6 @@
 
 - include: personal/sufyan.yml
 
-- name: Include custom personal tasks
-  include: "{{ item }}"
-  with_fileglob:
-    - ~/.ansible/personal_tasks/*.yml
-
 - name: Upgrade any already-installed formulae
   shell: brew upgrade
 
