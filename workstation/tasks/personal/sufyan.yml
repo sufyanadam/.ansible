@@ -33,8 +33,12 @@
     - phantomjs
     - node
 
+
 - name: Install pivotal git scripts
-  shell: gem install pivotal_git_scripts
+  gem:
+    name: pivotal_git_scripts
+    state: latest
+    user_install: yes
 
 - template: src=~/.ansible/workstation/templates/.pairs dest=~/.pairs
 
