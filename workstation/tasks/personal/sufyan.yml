@@ -23,7 +23,10 @@
   shell: rbenv global {{ ruby_version }}
 
 - name: Install bundler
-  shell: gem install bundler
+  gem:
+    name: bundler
+    state: latest
+    user_install: yes
 
 - name: Install packages from homebrew
   homebrew: name={{ item }} state=latest
