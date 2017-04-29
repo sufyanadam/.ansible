@@ -6,6 +6,7 @@
   homebrew_tap: tap={{ item }}
   with_items:
     - caskroom/cask
+    - caskroom/fonts
 
 - name: Install Homebrew cask
   homebrew: name=cask state=latest
@@ -25,7 +26,7 @@
     - w3m
     - csshx
     - rbenv
-    - rbenv-gemset
+    - mplayer
 
 - name: Install ruby-build
   git: repo=https://github.com/rbenv/ruby-build.git dest=~/.rbenv/plugins/ruby-build
@@ -33,22 +34,45 @@
 - name: Install GUI apps
   homebrew_cask: name={{ item }} state=present
   with_items:
+    - font-hack
     - caffeine
     - shiftit
-    - mou
+    - xquartz
     - flycut
     - ccmenu
     - google-chrome
-    - xquartz
   ignore_errors: true
 
 - include: install_emacs.yml
 
 - include: install_bash_it.yml
 
-- template: src=~/.ansible/workstation/templates/.bashrc dest=~/.bashrc
+- name: Update .bashrc file
+  blockinfile:
+    path: ~/.bashrc
+    create: yes
+    block: |
+      export PATH="/usr/local/bin:$PATH"
 
-- template: src=~/.ansible/workstation/templates/.bash_profile dest=~/.bash_profile
+      # Path to the bash it configuration
+      export BASH_IT="/Users/$USER/.bash_it"
+
+      # Lock and Load a custom theme file
+      export BASH_IT_THEME="bobby"
+
+      # Load Bash It
+      source $BASH_IT/bash_it.sh
+
+      # Enable colours in terminal
+      export TERM=xterm-256color
+
+- name: Update .bash_profile file
+  lineinfile:
+    dest: ~/.bash_profile
+    regexp: '^source ~/.bashrc'
+    line: 'source ~/.bashrc'
+    state: present
+    create: yes
 
 - name: Setup git
   shell: "git config --global alias.{{ item.key }} {{ item.value }}"
