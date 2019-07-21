@@ -33,7 +33,6 @@
   with_items:
     - postgresql
     - redis
-    - phantomjs
     - node
 
 

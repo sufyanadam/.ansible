@@ -7,7 +7,6 @@ of the papaya repo.
   - Automatically install the required software for developing papaya:
     - Postgresql (latest homebrew version)
     - Redis      (latest homebrew version)
-    - phantomjs  (latest homebrew version)
     - node
     - cask
     - wget
